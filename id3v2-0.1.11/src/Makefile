@@ -17,12 +17,11 @@ list.o: list.cpp
 	${CC} -I ${ID3}/include -DVERSION="\"${VERSION}\"" -c -o list.o list.cpp
 
 
-
 genre.o: genre.cpp
 	${CC} -I ${ID3}/include -DVERSION="\"${VERSION}\"" -c -o genre.o genre.cpp
 
 id3v2: convert.o list.o id3v2.o genre.o
-	${CC} -L${ID3}/lib ${CFLAGS} -o id3v2 $@ ${LDLIBS}
+	${CC} -L ${ID3}/lib ${CFLAGS} -o id3v2 $@ ${LDLIBS}
 install:
 	mkdir ${CH}/bin ${CH}/man ${CH}/man/man1
 	cp ${CH}/EnvDev/id3v2-0.1.11/src/id3v2 ${CH}/bin
